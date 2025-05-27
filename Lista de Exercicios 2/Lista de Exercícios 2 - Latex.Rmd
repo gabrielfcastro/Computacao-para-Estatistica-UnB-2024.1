@@ -1,0 +1,141 @@
+---
+title: "Lista de exercícios 2"
+author: "Gabriel Francisco"
+output: html_document
+---
+
+# Questão 1
+
+  A partir desse ponto em diante iremos, mostrar o passo-a-passo seguido para resolver a lista de exercícios 2 disponibilizada no Teams.
+
+# Questão 2
+
+  Iremos dividir essa questão em etapas as quais irão de etapa 1 a etapa 8 e serão abordadas passa-a-passo a seguir.
+
+##### Etapa 1
+  
+  A primeira etapa consiste em "baixar" o banco de dados airquality do R e mudar o nome de todas as variáveis do nosso banco de dados. Além disso, é importante destacar que vamos mostrar apenas as 6 primeiras linhas da nossa base de dados, com o intuíto de deixar as coisas mais claras e didáticas.
+  
+```{r}
+base_de_dados <- airquality
+head(base_de_dados)
+```
+    
+  Note como o banco de dados está em com o nome das colunas em inglês, a seguir iremos mudar o nome de todas nossas variáveis para seu equivalente em português.
+    
+```{r}
+base_de_dados <- airquality
+names(base_de_dados) <- c("Ozonio", "Radiação Solar", "Vento", "Temperatura (F)", "Mês", "Dia")
+head(base_de_dados)
+```
+##### Etapa 2
+
+  Nessa parte iremos extrair o conteúdo da linha 20 da nossa base de dados.
+  
+```{r}
+base_de_dados[20,]
+```
+##### Etapa 3
+
+  A seguir, iremos substituir da intersecção entre a linha 20 e a coluna do vento por NA, ou seja, substituiremos o valor da coluna 20 referente ao vento por NA.
+  
+```{r}
+base_de_dados[20,3] <- NA
+base_de_dados[20,]
+```
+  Observe acima que não temos mais o valor da coluna do Vento disponível na linha 20.
+  
+##### Etapa 4
+
+  Vamos calcular o vento médio da nossa base de dados.
+  
+```{r}
+base_de_dados$Vento
+```
+```{r}
+media_da_coluna_do_vento = mean(base_de_dados$Vento) # Observe que colocando esse parâmetro na.rm = TRUE, eu ignoro os dados inválidos para meu cálculo
+media_da_coluna_do_vento
+
+```
+  Porém, observe que como temos um elemento da coluna com NA temos que ativar o parâmetro na.rm = TRUE, o qual faz com que seja ignorado os valores inexistentes (NA) para o cálculo da média.
+```{r}
+media_da_coluna_do_vento = mean(base_de_dados$Vento, na.rm = TRUE)
+media_da_coluna_do_vento
+```
+##### Etapa 5
+
+  Agora, vamos criar uma nova coluna em nossa base de dados indicando se a temperatura foi maior que 75 F.
+  
+```{r}
+base_de_dados$"Temperatura maior que 75F" <- base_de_dados$`Temperatura (F)` > 75
+head(base_de_dados)
+```
+##### Etapa 6
+
+  Nessa etapa, vamos criar um banco de dados contendo apenas as informações (todas as colunas) dos dias nos quais a temperatura foi maior que 75 F.
+  
+```{r}
+nova_base_de_dados <- base_de_dados[base_de_dados$`Temperatura (F)` > 75,]
+head(nova_base_de_dados)
+```
+##### Etapa 7
+
+  Vamos transformar a nossa nova base de dados em uma matriz.
+  
+```{r}
+mat <- as.matrix(base_de_dados)
+head(mat)
+
+```
+
+  Observe que os valores que antes eram uma coluna de TRUE foram transformados em 1, isso ocorre porque a matriz transformar valores lógicos em 0 e 1.
+
+##### Etapa 8
+
+  Calculamos por fim as dimensões da nossa matriz.
+
+```{r}
+dimensao = dim(mat)
+dimensao
+```
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

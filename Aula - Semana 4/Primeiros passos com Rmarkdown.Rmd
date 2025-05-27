@@ -1,0 +1,43 @@
+---
+title: "Aula de rmarkdown"
+author: "Gabriel"
+date: "12/11/2024"
+output: 'html_document'
+---
+```{r}
+  setwd("C:\Users\Gabriel Francsico\Desktop\R - Códigos\Aula - Semana 4")
+```
+
+
+## Primeiros passos
+
+Não faço ideia do que eu estou fazendo. Tentando
+
+Lista\
+1.Observação 1\
+2.Observação 2\
+3.Observação 3\
+4.Observação 4
+
+Este é um link para a página do [Google](google.com)
+
+## Colocando imagens
+
+Vamos colocar a foto do Juca
+![](JucaFofo.jpg)
+
+## Escrevendo equação
+
+De acordo com Einstein 
+$$E = mc^2$$
+Dividindo 
+$$\sqrt{\frac{1}{2}\exp(x^2)}$$
+
+## Colocando um código no relatório
+  
+  Vamos fazer um teste pegando número $3$ e elevando ele ao quadrado
+```{r echo=TRUE}
+x <- 3
+x^2
+```
+

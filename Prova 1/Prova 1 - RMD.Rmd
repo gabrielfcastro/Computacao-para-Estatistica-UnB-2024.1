@@ -1,0 +1,11 @@
+---
+title: "Prova 1"
+output: html_document
+date: "2024-12-10"
+---
+
+```{r echo=FALSE}
+x <- seq(-3,3,0.25)
+x
+```
+
